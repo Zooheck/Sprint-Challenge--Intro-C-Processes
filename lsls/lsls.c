@@ -26,13 +26,21 @@ long int findSize(char file_name[])
 
 int main(int argc, char **argv)
 {
-  // Parse command line
+  int i;
 
-  // Open directory
-
-  // Repeatly read and print entries
-
-  // Close directory
+  DIR *d;
+  struct dirent *dir;
+  d = opendir(argv[1]);
+  if (d)
+  {
+    while ((dir = readdir(d)) != NULL)
+    {
+      struct stat buff;
+      stat(dir->d_name, &buff);
+      printf("File Name: %s       File Size: %ld\n", dir->d_name, buff.st_size);
+    }
+    closedir(d);
+  }
 
   return 0;
 }
