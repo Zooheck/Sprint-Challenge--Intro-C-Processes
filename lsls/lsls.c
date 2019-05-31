@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <dirent.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
 long int findSize(char file_name[])
 {
